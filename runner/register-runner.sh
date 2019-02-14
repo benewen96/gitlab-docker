@@ -1,7 +1,9 @@
  # run this on runner container to register
+ # $1 = gitlab url
+ # $2 = registration token
  gitlab-runner register -n \
-   --url http://192.168.0.19 \
-   --registration-token <YOUR TOKEN> \
+   --url $1 \
+   --registration-token $2 \
    --executor docker \
    --description "Docker Runner" \
    --docker-image "docker:stable" \
