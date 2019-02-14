@@ -2,6 +2,7 @@ version: "3.3"
 
 services:
   gitlab:
+    restart: always
     network_mode: host
     image: gitlab/gitlab-ce:latest
     ports:
@@ -19,11 +20,13 @@ services:
       - gitlab_root_password
 
   gitlab-runner:
+    restart: always
     network_mode: host
     image: gitlab/gitlab-runner:alpine
     volumes:
       - "./runner:/etc/gitlab-runner"
       - "/var/run/docker.sock:/var/run/docker.sock"
+      
   # git lab has its own registry per project, no need for your own docker image registry
   # registry:
   #   network_mode: host
