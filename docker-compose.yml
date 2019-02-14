@@ -25,6 +25,7 @@ services:
     image: gitlab/gitlab-runner:alpine
     volumes:
       - "runner:/etc/gitlab-runner"
+      - "./register-runner.sh:/etc/gitlab-runner/register-runner.sh"
       - "/var/run/docker.sock:/var/run/docker.sock"
       
   # git lab has its own registry per project, no need for your own docker image registry
