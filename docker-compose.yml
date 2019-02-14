@@ -24,7 +24,7 @@ services:
     network_mode: host
     image: gitlab/gitlab-runner:alpine
     volumes:
-      - "./runner:/etc/gitlab-runner"
+      - "runner:/etc/gitlab-runner"
       - "/var/run/docker.sock:/var/run/docker.sock"
       
   # git lab has its own registry per project, no need for your own docker image registry
@@ -47,3 +47,4 @@ volumes:
   data:
   logs:
   config:
+  runner:
